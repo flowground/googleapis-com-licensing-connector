@@ -1,0 +1,169 @@
+{
+    "title": "Enterprise License Manager",
+    "description": "Views and manages licenses for your domain.",
+    "docsUrl": "https://developers.google.com/google-apps/licensing/",
+    "url": "https://api.apis.guru/v2/specs/googleapis.com/licensing/v1/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://www.googleapis.com/apps/licensing/v1/product",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "Oauth2": {
+                "label": "Oauth 2.0 authentication",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "licensing_licenseAssignments_insert": {
+            "main": "./lib/actions/licensing_licenseAssignments_insert.js",
+            "title": "Assign License.",
+            "description": "Assign License.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/licensing_licenseAssignments_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "licensing_licenseAssignments_delete": {
+            "main": "./lib/actions/licensing_licenseAssignments_delete.js",
+            "title": "Revoke License.",
+            "description": "Revoke License.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/licensing_licenseAssignments_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "licensing_licenseAssignments_get": {
+            "main": "./lib/actions/licensing_licenseAssignments_get.js",
+            "title": "Get license assignment of a particular product and sku for a user",
+            "description": "Get license assignment of a particular product and sku for a user",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/licensing_licenseAssignments_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "licensing_licenseAssignments_patch": {
+            "main": "./lib/actions/licensing_licenseAssignments_patch.js",
+            "title": "Assign License. This method supports patch semantics.",
+            "description": "Assign License. This method supports patch semantics.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/licensing_licenseAssignments_patch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "licensing_licenseAssignments_update": {
+            "main": "./lib/actions/licensing_licenseAssignments_update.js",
+            "title": "Assign License.",
+            "description": "Assign License.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/licensing_licenseAssignments_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "licensing_licenseAssignments_listForProductAndSku": {
+            "main": "./lib/actions/licensing_licenseAssignments_listForProductAndSku.js",
+            "title": "List license assignments for given product and sku of the customer.",
+            "description": "List license assignments for given product and sku of the customer.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/licensing_licenseAssignments_listForProductAndSku.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "licensing_licenseAssignments_listForProduct": {
+            "main": "./lib/actions/licensing_licenseAssignments_listForProduct.js",
+            "title": "List license assignments for given product of the customer.",
+            "description": "List license assignments for given product of the customer.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/licensing_licenseAssignments_listForProduct.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

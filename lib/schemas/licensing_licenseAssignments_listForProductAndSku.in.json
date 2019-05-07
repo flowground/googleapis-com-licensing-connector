@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "customerId": {
+            "required": true,
+            "type": "string"
+        },
+        "maxResults": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000,
+            "default": 100
+        },
+        "pageToken": {
+            "type": "string",
+            "default": ""
+        },
+        "productId": {
+            "required": true,
+            "type": "string"
+        },
+        "skuId": {
+            "required": true,
+            "type": "string"
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}
